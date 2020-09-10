@@ -1,4 +1,3 @@
 #!/bin/bash
 # My first script
-alias 0-current_working_directory='pwd'
-
+echo $pwd
