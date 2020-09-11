@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod -R ugoa+x
+-type d chmod -R ugoa+x
