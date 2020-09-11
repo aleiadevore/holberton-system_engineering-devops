@@ -1,2 +1,2 @@
 #!/bin/bash
-chown --reference betty:holberton .
+chown betty:holberton *
