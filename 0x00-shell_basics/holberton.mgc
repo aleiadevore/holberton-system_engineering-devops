@@ -1,2 +1,2 @@
 #!/bin/bash
-file HOLBERTON*
+file -C HOLBERTON*
