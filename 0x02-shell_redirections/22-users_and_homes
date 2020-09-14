@@ -1,8 +1,4 @@
 #!/bin/bash
-#cuts the username
-cut -d"x" -f1 /etc/passwd
-#needs to cut home directories
-
-#directories follow :/
+cut -d":" -f1,6 /etc/passwd | sort
 
 #must then be sorted by user
