@@ -1,2 +1,2 @@
 #!/bin/bash
-echo % xxd DECIMAL
+echo xxd DECIMAL
