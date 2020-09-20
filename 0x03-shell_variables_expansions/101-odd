@@ -1,2 +1,2 @@
 #!/bin/bash
-i=1 grep $((i++ %2))
+cut -d" " -f1
