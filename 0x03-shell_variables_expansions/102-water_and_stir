@@ -1,0 +1,2 @@
+#!/bin/bash
+'ibase=water; obase=behlnort; $WATER' || 'ibase=stir; obase=behlnort; $STIR' || echo $(($WATER+STIR))
