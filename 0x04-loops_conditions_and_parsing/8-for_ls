@@ -4,6 +4,6 @@
 # count=$(ls -l | wc -l)
 for i in *
 do
-    name=$(echo "$i" | tr -d ['*-'])
+    name=$(echo "$i" | cut -d"-" -f2-)
     echo "$name"
 done
