@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Prints contents of directory in list after first dash
+
+# count=$(ls -l | wc -l)
+for i in *
+do
+    name=$(echo "$i" | tr -d ['*-'])
+    echo "$name"
+done
