@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Prints Fizz if mult of 3, Buzz if mult of 5, and FizzBuzz if mult of 3 and 5
+
+for num in {1..100}
+do
+
+	if ! ((num%3));
+	then
+	    if ! ((num%5));
+	    then
+		echo "FizzBuzz"
+	    else
+		echo "Fizz"
+	    fi
+	elif ! ((num%5));
+	then
+	    echo "Buzz"
+	else
+	    echo "$num"
+	fi
+done
