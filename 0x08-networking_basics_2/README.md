@@ -1,0 +1,1 @@
+This directory contains practice files for networking basics.
