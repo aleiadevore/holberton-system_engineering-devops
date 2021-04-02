@@ -1,5 +1,6 @@
+# This creates a file
 file { '/tmp/holberton':
-  ensure  => present,
+  ensure  => file,
   mode    => '0744',
   content => 'I love Puppet',
   owner   => 'www-data',
