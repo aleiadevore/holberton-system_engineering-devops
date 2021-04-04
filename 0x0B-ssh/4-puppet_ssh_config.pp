@@ -1,8 +1,11 @@
 # Changes permissions to refuse password
-class { 'ssh'
-      server_options => {
-        'PasswordAuthentication' => 'no',
-  'ChallengeResponseAuthentication' => 'no'
-  'UsePAM' => 'no'
-      }
+file_line { 'id-file':
+  path => '/etc/ssh/ssh_config',
+  line => 'IdentityFile ~/.ssh/holberton'
+}
+
+file_line { 'aunthentication':
+  path        => '/etc/ssh/ssh_config',
+        match => 'PasswordAuthentication',
+  line        => 'PasswordAuthentication no'
 }
