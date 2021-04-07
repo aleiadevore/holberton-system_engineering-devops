@@ -1,2 +1,5 @@
 # /etc/puppet/manifests/nginx.pp
-class{'nginx': }
+include nginx
+nginx::resource::server { 'aleiadevore.tech':
+  listen_port => 80,
+}
