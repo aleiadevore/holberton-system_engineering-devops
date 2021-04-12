@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# cobfiguresload balancer on new server
+sudo apt update
+sudo apt install -y haproxy
+#use backend for round-robin
+echo 'backend web_servers
+\tbalance roundrobin
+\tcookie SERVERUSED
+\tinsert indirect nocache
+\toption httpchk HEAD /
+\tdefault-server check maxconn 20
+\tserver 2496-web-01 35.229.48.31 cookie 2496-web-01
+\tserver 2496-web-02 54.242.149.19 cookie 2496-web-02' tee -a /etc/haproxy/haproxy.cfg
+service haproxy restart
