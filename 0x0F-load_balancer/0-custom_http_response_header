@@ -1,0 +1,6 @@
+#!/usr/bin/env/bash
+# Sets custom HTTP header to display which server is in use
+sudo apt-get update
+sudo apt-get -y install nginx
+# Use sed -si to add header to /etc/nginx/sites-available/default
+sudo service nginx restart
