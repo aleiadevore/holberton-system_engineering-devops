@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # cobfiguresload balancer on new server
 apt update
-apt install -y haproxy
+apt install -y haproxy=1.6.\*
 echo -e '
 frontend incoming_https
 \tbind \*:80
