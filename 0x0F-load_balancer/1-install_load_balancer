@@ -3,7 +3,12 @@
 sudo apt update
 sudo apt install -y haproxy
 #use backend for round-robin
-echo 'backend web_servers
+echo -e '
+frontend incoming_https
+\tbind \*:80
+default_backend web_servers
+
+backend web_servers
 \tbalance roundrobin
 \tcookie SERVERUSED
 \tinsert indirect nocache
