@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # cobfiguresload balancer on new server
-sudo apt update
-sudo apt install -y haproxy
+apt update
+apt install -y haproxy
 echo -e '
 frontend incoming_https
 \tbind \*:80
@@ -10,5 +10,5 @@ frontend incoming_https
 backend web_servers
 \tbalance roundrobin
 \tserver 2496-web-01 35.229.48.31
-\tserver 2496-web-02 54.242.149.19' | sudo tee -a /etc/haproxy/haproxy.cfg
-sudo service haproxy restart
+\tserver 2496-web-02 54.242.149.19' | tee -a /etc/haproxy/haproxy.cfg
+service haproxy restart
