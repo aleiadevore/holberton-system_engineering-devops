@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
-# configuresload balancer on new server
-apt update
-apt-get install -y haproxy=1.6.\*
+# configures load balancer on new server
+sudo apt update
+sudo apt-get install -y haproxy
 echo 'ENABLED=1' | sudo tee /etc/default/haproxy
 echo -e '
 frontend incoming_https
-\tbind \*:80
+\tbind *:80
 \tdefault_backend web_servers
 
 backend web_servers
 \tbalance roundrobin
-\tserver 2496-web-01 35.229.48.31:80
-\tserver 2496-web-02 54.242.149.19:80' | tee /etc/haproxy/haproxy.cfg
-service haproxy restart
+\tserver 2496-web-01 35.229.48.31:80 check
+\tserver 2496-web-02 54.242.149.19:80 check
+' | sudo tee -a /etc/haproxy/haproxy.cfg
+sudo service haproxy restart
