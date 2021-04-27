@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# runs nginx as user nginx and listens on port 8080
+
+# add or change 'user nginx' in /etc/nginx/nginx.conf
+
+# change permissions so we can edit
+chmod 700 /etc/nginx/nginx.conf
+# add user to nginx config - default www-data already commented out
+sudo sed -i '1i user nginx;' /etc/nginx/nginx.conf
+# listen on port 8080
+sudo sed -i 's/80/8080/' /etc/nginx/sites-available/default
+# give nginx user ownership of config
+chown nginx /etc/nginx/nginx.conf
+# restart as user nginx
+su nginx service nginx start
