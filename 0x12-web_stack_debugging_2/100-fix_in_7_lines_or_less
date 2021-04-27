@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# runs nginx as user nginx and listens on port 8080
+# runs nginx as nginx and listens on port 8080
 sudo pkill apache
 chmod 700 /etc/nginx/nginx.conf
 sudo sed -i '1i user nginx;' /etc/nginx/nginx.conf
