@@ -10,7 +10,5 @@ chmod 700 /etc/nginx/nginx.conf
 sudo sed -i '1i user nginx;' /etc/nginx/nginx.conf
 # listen on port 8080
 sudo sed -i 's/80/8080/' /etc/nginx/sites-available/default
-# give nginx user ownership of config
-chown nginx /etc/nginx/nginx.conf
 # restart as user nginx
-su nginx service nginx start
+sudo -u nginx service nginx restart
