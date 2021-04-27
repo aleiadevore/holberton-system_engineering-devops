@@ -3,7 +3,7 @@
 
 # add or change 'user nginx' in /etc/nginx/nginx.conf
 # apache was still running as www-data
-sudo pkill apache
+sudo pkill -f apache
 # change permissions so we can edit
 chmod 700 /etc/nginx/nginx.conf
 # add user to nginx config - default www-data already commented out
