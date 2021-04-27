@@ -8,7 +8,7 @@ sudo pkill -f apache
 chmod 700 /etc/nginx/nginx.conf
 # add user to nginx config - default www-data already commented out
 #sed -i '1i user nginx;' /etc/nginx/nginx.conf
-sudo chown nginx:nginx /etc/nginx/nginx.conf
+sudo chown -R nginx:nginx /etc/nginx/nginx.conf
 # listen on port 8080
 sed -i 's/80/8080/' /etc/nginx/sites-available/default
 # restart as user nginx
