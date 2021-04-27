@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # runs nginx as user nginx and listens on port 8080
-
+sudo apt-get update
+sudo apt-get -y install apache2
+apt-get update
+apt-get -y install nginx
+sudo service apache2 start
 # add or change 'user nginx' in /etc/nginx/nginx.conf
 # apache was still running as www-data
 sudo pkill -f apache
