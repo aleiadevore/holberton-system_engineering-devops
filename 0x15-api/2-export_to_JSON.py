@@ -12,14 +12,18 @@ if __name__ == "__main__":
         usrname = info.get('username')
 
         all_tasks = requests.get('{}/todos'.format(url)).json()
-        json_str = ''
+
+        json_list = []
+        new_dict = {}
+
         for task in all_tasks:
-                json_str += json.dumps(
-                        {argv[1]: [{'task': task.get(
+                json_list.append(
+                        {'task': task.get(
                                 'title'), 'completed': task.get(
-                                'completed'), 'username': usrname}]})
+                                'completed'), 'username': usrname})
+        new_dict[argv[1]] = json_list
 
         file_name = '{}.json'.format(argv[1])
 
         with open(file_name, mode='w') as f:
-                f.write(json_str)
+                json.dump(new_dict, f)
