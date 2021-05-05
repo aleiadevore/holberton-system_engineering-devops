@@ -9,7 +9,7 @@ if __name__ == "__main__":
 
         url = 'https://jsonplaceholder.typicode.com/users/{}'.format(argv[1])
         info = requests.get(url).json()
-        name = info.get('name')
+        name = info.get('username')
 
         all_tasks = requests.get('{}/todos'.format(url)).json()
 
