@@ -1,13 +1,11 @@
 #!/usr/bin/python3
-""" queries the Reddit API and returns a list containing the
-titles of all hot articles for a given subreddit. If no results
-are found for the given subreddit, the function should return None. """
+""" Prints number of keywords given for a subreddits hot list """
 import json
 import requests
 
 
 def count_words(subreddit, word_list, after=None, answer_dict={}):
-        """ Returns list of titles of all hot articles or None """
+        """ Prints number of keywords given for a subreddits hot list """
 
         url = "https://www.reddit.com/r/{}/hot.json".format(
                 subreddit)
@@ -32,7 +30,9 @@ def count_words(subreddit, word_list, after=None, answer_dict={}):
                                                 answer_dict[key] += 1
                 after = response.get("data").get("after")
                 if not after:
-                        for key, value in answer_dict.items():
+                        for key, value in sorted(
+                                answer_dict.items(),
+                                key=lambda item: item[1], reverse=True):
                                 print("{}: {}".format(key, value))
                         return
                 return count_words(subreddit, word_list, after, answer_dict)
