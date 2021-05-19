@@ -18,17 +18,14 @@ def count_words(subreddit, word_list, spot=0):
                 params=parameters).json()
 
         if "data" not in response:
-                print()
                 return
         else:
                 count = 0
                 for i in response.get("data")["children"]:
-                        if word_list[spot] in i["data"]["title"]:
+                        if word_list[spot].lower() in i["data"]["title"].lower():
                                 count += 1
                 if count > 0:
                         print("{}: {}".format(word_list[spot], count))
-                else:
-                        print()
                 if spot == (len(word_list) - 1):
                         return
                 return count_words(subreddit, word_list, spot + 1)
