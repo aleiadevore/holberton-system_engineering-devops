@@ -25,9 +25,11 @@ def count_words(subreddit, word_list, after=None, answer_dict={}):
                 return
         else:
                 for i in response.get("data")["children"]:
+                        check_list = i["data"]["title"].split()
                         for key, value in answer_dict.items():
-                                if key in i["data"]["title"].lower():
-                                        answer_dict[key] += 1
+                                for item in check_list:
+                                        if key == item.lower():
+                                                answer_dict[key] += 1
                 after = response.get("data").get("after")
                 if not after:
                         for key, value in answer_dict.items():
