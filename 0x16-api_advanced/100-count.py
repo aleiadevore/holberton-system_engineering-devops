@@ -11,9 +11,12 @@ def count_words(subreddit, word_list, after=None, answer_dict={}):
                 subreddit)
         headers = {"User-Agent": "user"}
         parameters = {"show": "all", "next": "next", "after": after}
-        response = requests.get(
-                url, headers=headers, allow_redirects=False,
-                params=parameters).json()
+        try:
+                response = requests.get(url, headers=headers,
+                                        allow_redirects=False,
+                                        params=parameters).json()
+        except:
+                return
 
         for item in word_list:
                 if item.lower() not in answer_dict:
